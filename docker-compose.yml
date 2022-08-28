@@ -92,7 +92,6 @@ networks:
     driver: bridge
   log3bittalkcom:
     driver: bridge
-    external: true
 
 volumes:
   setup:
