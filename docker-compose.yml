@@ -83,12 +83,16 @@ services:
       KIBANA_SYSTEM_PASSWORD: ${KIBANA_SYSTEM_PASSWORD:-}
     networks:
       - elk
+      - log3bittalkcom
     depends_on:
       - elasticsearch
 
 networks:
   elk:
     driver: bridge
+  log3bittalkcom:
+    driver: bridge
+    external: true
 
 volumes:
   setup:
