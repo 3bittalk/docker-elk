@@ -67,6 +67,7 @@ services:
       LOGSTASH_INTERNAL_PASSWORD: ${LOGSTASH_INTERNAL_PASSWORD:-}
     networks:
       - elk
+      - logging
     depends_on:
       - elasticsearch
 
@@ -91,6 +92,8 @@ networks:
   elk:
     driver: bridge
   log3bittalkcom:
+    driver: bridge
+  logging:
     driver: bridge
 
 volumes:
