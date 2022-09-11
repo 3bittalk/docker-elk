@@ -67,7 +67,6 @@ services:
       LOGSTASH_INTERNAL_PASSWORD: ${LOGSTASH_INTERNAL_PASSWORD:-}
     networks:
       - elk
-      - logging
     depends_on:
       - elasticsearch
 
@@ -84,17 +83,16 @@ services:
       KIBANA_SYSTEM_PASSWORD: ${KIBANA_SYSTEM_PASSWORD:-}
     networks:
       - elk
-      - log3bittalkcom
+      - iac-3bittalk_log3bittalkcom
     depends_on:
       - elasticsearch
 
 networks:
   elk:
     driver: bridge
-  log3bittalkcom:
+  iac-3bittalk_log3bittalkcom:
     driver: bridge
-  logging:
-    driver: bridge
+    external: true
 
 volumes:
   setup:
